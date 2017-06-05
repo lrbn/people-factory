@@ -6,8 +6,9 @@ function handleSubmit(ev) {
   const f = ev.target;
   // Use the values from both inputs in the 'h1'.
   const name = f.personName.value;
-  const age = f.personAge.value;
-  document.querySelector('p').textContent = "Name: " + name + '' + "Age: " + age;
+  const hairColor = f.personHairColor.value;
+  const nameAndHairColor = "Name: " + name + "\n\Hair Color: " + hairColor;
+  document.querySelector('p.special').innerText = nameAndHairColor;
   // document.querySelector('h1').textContent = age;
 }
 personForm.addEventListener('submit', handleSubmit); // Do not put () after handleSubmit because it gets the return value
