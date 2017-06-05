@@ -4,7 +4,10 @@ function handleSubmit(ev) {
   ev.preventDefault(); // The event continues to propagate as usual with only the exception that the event does nothing if no event listeners call stopPropagation(), which terminates propagation at once.
   // console.log('Submit!');
   const f = ev.target;
+  // Use the values from both inputs in the 'h1'.
   const name = f.personName.value;
-  document.querySelector('h1').textContent = name;
+  const age = f.personAge.value;
+  document.querySelector('p').textContent = "Name: " + name + '' + "Age: " + age;
+  // document.querySelector('h1').textContent = age;
 }
 personForm.addEventListener('submit', handleSubmit); // Do not put () after handleSubmit because it gets the return value
