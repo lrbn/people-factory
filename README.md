@@ -12,3 +12,9 @@
 ### Super Mega Bonus Credit Hyper Fighting
 
 * Change the appearance of the paragraph (think CSS) based on a value from the form.
+
+### Day 2 LAB
+
+* Add form values to '.details' using 'document.createElement' and 'appendChild', instead of 'innerHTML'.
+
+* Break out some of these functionalities into separate functions.
