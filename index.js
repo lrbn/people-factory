@@ -8,6 +8,10 @@ function handleSubmit(ev) {
   const details = document.querySelector('#details');
   const name = f.personName.value;
   // details.innerHTML = '<em>' + name + '<em>';
-  details.innerHTML = `<em>${name}</em>`; // ${} javascript expression
+  // details.innerHTML = `<em>${name}</em>`; // ${} javascript expression
+  const em = document.createElement('em');
+  em.textContent = name;
+  details.appendChild(em);
+
 }
 personForm.addEventListener('submit', handleSubmit); // Do not put () after handleSubmit because it gets the return value
