@@ -5,7 +5,7 @@ function handleSubmit(ev) {
   // console.log('Submit!');
   const f = ev.target;
   // Use the values from both inputs in the 'h1'.
-  const details = document.querySelector("#details");
+  const details = document.querySelector('#details');
   const name = f.personName.value;
   details.innerHTML = '<em>' + name + '<em>';
 }
