@@ -12,6 +12,5 @@ function handleSubmit(ev) {
   const em = document.createElement('em');
   em.textContent = name;
   details.appendChild(em);
-
 }
 personForm.addEventListener('submit', handleSubmit); // Do not put () after handleSubmit because it gets the return value

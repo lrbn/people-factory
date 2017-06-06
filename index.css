@@ -1,4 +1,15 @@
-/* Change the appearance of the paragraph (think CSS) based on a value from the form. */
-p.special {
-  font-weight: bold;
+body {
+  /*Shorthand*/
+  padding: 1rem 4rem; 
+  /*padding-top: 1rem;
+  padding-right: 4rem;
+  padding-bottom: 1rem;
+  padding-left: 4rem;*/
+}
+
+/* Put space for descendant*/
+/* Put > for child */
+section div {
+  width: 80%;
+  margin: 1rem auto;
 }
