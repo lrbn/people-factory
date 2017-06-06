@@ -1,15 +1,50 @@
 body {
-  /*Shorthand*/
-  padding: 1rem 4rem; 
-  /*padding-top: 1rem;
-  padding-right: 4rem;
-  padding-bottom: 1rem;
-  padding-left: 4rem;*/
+  padding: 1rem 4rem;
 }
 
-/* Put space for descendant*/
-/* Put > for child */
-section div {
+section > div {
   width: 80%;
   margin: 1rem auto;
+}
+
+form {
+  margin-top: 50px;
+}
+
+dl {
+  padding: 15px 10px;
+}
+
+dl > li {
+  list-style: none;
+}
+
+dt, dd {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+}
+
+dl:nth-of-type(even) {
+  background-color: WhiteSmoke;
+}
+
+@media (min-width: 700px) {
+  section > div {
+    width: 60%;
+  }
+}
+
+@media (min-width: 900px) {
+  section > div {
+    float: left;
+    margin: 20px 5%;
+    width: 40%;
+  }
+
+  section::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
 }
