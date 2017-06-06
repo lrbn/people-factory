@@ -1,4 +1,3 @@
-// console.log("It worked");
 const personForm = document.querySelector('form#personForm');
 
 function renderColor(color) {
@@ -9,26 +8,32 @@ function renderColor(color) {
   return colorDiv;
 }
 
-function handleSubmit(ev) {
-  ev.preventDefault(); // The event continues to propagate as usual with only the exception that the event does nothing if no event listeners call stopPropagation(), which terminates propagation at once.
-  // console.log('Submit!');
-  const f = ev.target;
-  // Use the values from both inputs in the 'h1'.
-  const details = document.querySelector('#details');
-  const name = f.personName.value;
-  const favoriteColor = f.favoriteColor.value; // hex value
-  const age = f.age.value;
-  // Must put width and height (or element won't show)
-
-  details.innerHTML = `
-    <ul>
-      <li>Name: ${name}</li>
-      <li>Favorite Color: ${renderColor(favoriteColor).outerHTML}</li>
-      <li>Age: ${age}</li>
-    </ul>
-  `;  
+function renderListItem(fieldName, value) {
+  const li = document.createElement('li');
+  li.innerHTML = `${fieldName}: ${value}`;
+  return li;
 }
-// outerHTML includes opening and closing tags
-// innerHTML includes only the inside between the opening and closing tags
 
-personForm.addEventListener('submit', handleSubmit); // Do not put () after handleSubmit because it gets the return value
+function renderList(personData) {
+  const list = document.createElement('ul');
+  // Loop over ['name', 'favoriteColor', 'age']
+  Object.keys(personData).map(function(fieldName) {
+    const li = renderListItem(fieldName, personData[fieldName]);
+    list.appendChild(li);
+  });
+  return list;
+}
+
+function handleSubmit(ev) {
+  ev.preventDefault();
+  const f = ev.target;
+  const details = document.querySelector('#details');
+  const person = {
+    Name: f.personName.value,
+    FavoriteColor: renderColor(f.favoriteColor.value).outerHTML,
+    Age: f.age.value,
+  };
+
+  details.appendChild(renderList(person));
+}
+personForm.addEventListener('submit', handleSubmit);
