@@ -1,6 +1,11 @@
 const personForm = document.querySelector('form#personForm');
 
 function renderColor(color) {
+
+  console.group('renderColor');
+  console.log(`This: ${this}`);
+  console.groupEnd('handleSubmit');
+
   const colorDiv = document.createElement('div');
   colorDiv.style.backgroundColor = color;
   colorDiv.style.width = '100px';
@@ -36,4 +41,7 @@ function handleSubmit(ev) {
 
   details.appendChild(renderList(person));
 }
+
+// renderColor() // this === window
+
 personForm.addEventListener('submit', handleSubmit);
