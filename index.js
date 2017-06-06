@@ -7,6 +7,7 @@ function handleSubmit(ev) {
   // Use the values from both inputs in the 'h1'.
   const details = document.querySelector('#details');
   const name = f.personName.value;
-  details.innerHTML = '<em>' + name + '<em>';
+  // details.innerHTML = '<em>' + name + '<em>';
+  details.innerHTML = `<em>${name}</em>`; // ${} javascript expression
 }
 personForm.addEventListener('submit', handleSubmit); // Do not put () after handleSubmit because it gets the return value
