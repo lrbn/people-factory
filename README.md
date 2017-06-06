@@ -13,13 +13,13 @@
 
 * Change the appearance of the paragraph (think CSS) based on a value from the form.
 
-### Day 2 LAB
+## Day 2 LAB
 
 * Add form values to `.details` using `document.createElement` and `appendChild`, instead of `innerHTML`.
 
 * Break out some of these functionalities into separate functions.
 
-### Day 2 Homework
+## Day 2 Homework
 
 Make a new project from scratch!
 
