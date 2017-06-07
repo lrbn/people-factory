@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js"> 
+<html class="no-js">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,45 +10,36 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <h1>A Factory of People</h1>
-    <!--<p>This is some text.</p>
-    <p>This is some more.</p>
-    <p class="special">So special, y'all!</p>
-    <p>Considerably less special.</p>
-    <p class="special">But this one's special, by golly!</p>-->
+    <h1><span>a</span> Factory <span>of</span> People</h1>
+
     <section>
       <div class="special">
-        <form id="personForm">
+        <!--id gave global variable (scope)-->
+        <form id="personForm"> 
           <p>
-            <label for="personName">Name:</label>
+            <label for="personName">Name</label>
             <input type="text" name="personName">
           </p>
+
           <p>
-            <label for="favoriteColor">Favorite Color:</label>
+            <label for="favoriteColor">Favorite Color</label>
             <input type="color" name="favoriteColor">
           </p>
-          <!--p>label+input-->
+
           <p>
-            <label for="age">Age:</label>
+            <label for="age">Age</label>
             <input type="number" name="age">
           </p>
-          <!-- Add another input to the form. -->
-          <!--<p>
-            <label for="personHairColor">Hair Color:</label>
-            <input type="text" name="personHairColor">
-          </p>-->
-          <!-- Add an empty paragraph to the page. -->
-          <!-- Use the form values to do something with that paragraph. -->
-          <p class="special">
-          </p>
+
           <p>
             <button type="submit">Go</button>
           </p>
         </form>
       </div>
-      <div id="details">
-      </div>
+
+      <div id="details"></div>
     </section>
+
     <script src="index.js"></script>
   </body>
 </html>

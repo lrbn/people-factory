@@ -1,47 +1,45 @@
-const personForm = document.querySelector('form#personForm');
-
-function renderColor(color) {
-
-  console.group('renderColor');
-  console.log(`This: ${this}`);
-  console.groupEnd('handleSubmit');
-
-  const colorDiv = document.createElement('div');
-  colorDiv.style.backgroundColor = color;
-  colorDiv.style.width = '100px';
-  colorDiv.style.height = '50px';
-  return colorDiv;
+const PeopleFactory = {
+  // theForm: document.querySelector('form#personForm'),
+  init: function(formSelector) {
+    const f = document.querySelector(formSelector)
+    f.addEventListener('submit', this.handleSubmit.bind(this))
+  },
+  renderColor: function(color) {
+    const colorDiv = document.createElement('div')
+    colorDiv.style.backgroundColor = color
+    colorDiv.style.width = '100px'
+    colorDiv.style.height = '50px'
+    return colorDiv
+  },
+  renderListItem: function(fieldName, value) {
+    const li = document.createElement('li')
+    const dt = document.createElement('dt')
+    const dd = document.createElement('dd')
+    dt.textContent = fieldName
+    dd.innerHTML = value
+    li.appendChild(dt)
+    li.appendChild(dd)
+    return li
+  },
+  renderList: function(personData) {
+    const list = document.createElement('dl')
+    // Loop over ['name', 'favoriteColor', 'age']
+    Object.keys(personData).map((fieldName) => { // arrow function automatically binds this to the context
+      const li = this.renderListItem(fieldName, personData[fieldName])
+      list.appendChild(li)
+    })
+    return list
+  },
+  handleSubmit: function(ev) {
+    ev.preventDefault()
+    const f = ev.target
+    const details = document.querySelector('#details')
+    const person = {
+      name: f.personName.value,
+      favoriteColor: this.renderColor(f.favoriteColor.value).outerHTML,
+      age: f.age.value,
+    }
+    details.appendChild(this.renderList(person))
+  },
 }
-
-function renderListItem(fieldName, value) {
-  const li = document.createElement('li');
-  li.innerHTML = `${fieldName}: ${value}`;
-  return li;
-}
-
-function renderList(personData) {
-  const list = document.createElement('ul');
-  // Loop over ['name', 'favoriteColor', 'age']
-  Object.keys(personData).map(function(fieldName) {
-    const li = renderListItem(fieldName, personData[fieldName]);
-    list.appendChild(li);
-  });
-  return list;
-}
-
-function handleSubmit(ev) {
-  ev.preventDefault();
-  const f = ev.target;
-  const details = document.querySelector('#details');
-  const person = {
-    Name: f.personName.value,
-    FavoriteColor: renderColor(f.favoriteColor.value).outerHTML,
-    Age: f.age.value,
-  };
-
-  details.appendChild(renderList(person));
-}
-
-// renderColor() // this === window
-
-personForm.addEventListener('submit', handleSubmit);
+PeopleFactory.init('form#personForm')
